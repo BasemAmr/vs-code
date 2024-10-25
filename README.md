@@ -1,50 +1,93 @@
-# React + TypeScript + Vite
+# VS Code Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Visual Studio Code clone built with React, TypeScript, Redux, and Tailwind CSS. Features a file explorer with recursive directory structure, syntax highlighting, and a tabbed interface for opened files.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### File Explorer
+- **Recursive Component**: Dynamically renders the file tree structure
+- **Folder and File Icons**: SVG icons for folders and files, including custom icons for specific file types and folder names
 
-## Expanding the ESLint configuration
+### Tabs for Opened Files
+- **FileTabsBar Component**: Displays tabs for all opened files
+- **FileTab Component**: Individual tabs for opened files with close functionality
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Syntax Highlighting
+- **HighlightedSyntax Component**: Implements `react-syntax-highlighter` for code file syntax highlighting
 
-- Configure the top-level `parserOptions` property like this:
+### State Management
+- **Redux**: Manages opened files and currently selected file states
+- **fileTreeSlice**: Contains actions and reducers for file management
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Icons and Styling
+- **SVG Icons**: Custom icons for different file types and folder names
+- **Tailwind CSS**: Utility-first CSS framework for styling
+
+### Utility
+- **UUID**: Generates unique IDs for files and folders
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/vscode-clone.git
+
+# Navigate to project directory
+cd vscode-clone
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## File Structure
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+src/
+├── components/
+│   ├── SVG/
+│   ├── FileTab.tsx
+│   ├── FileTabsBar.tsx
+│   ├── RecursiveComponent.tsx
+│   └── HighlightedSyntax.tsx
+├── app/
+│   └── features/
+│       └── fileTreeSlice.ts
+└── public/
+    └── extensionToIcon.json
+```
+
+## Configuration Files
+
+- `tailwind.config.js`: Tailwind CSS configuration
+- `tsconfig.json`: TypeScript configuration
+- `index.html`: Application entry point
+
+## Usage
+
+1. **Opening Files**
+   - Click on any file in the file explorer to open it in a new tab
+
+2. **Closing Tabs**
+   - Click the close icon (×) on a tab to close it
+
+3. **Syntax Highlighting**
+   - Files automatically display with syntax highlighting based on their extension
+
+
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+
+## Acknowledgments
+- Big thanks for Codeawy for their valuable project walkthrough 
+- Icons based on VS Code's icon theme
+- Built with React and modern web technologies
