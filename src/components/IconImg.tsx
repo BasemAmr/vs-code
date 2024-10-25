@@ -1,5 +1,5 @@
 
-interface IconImgProps {
+interface IconImgProps extends React.HTMLProps<HTMLImageElement> {
     src: string
 }
 
